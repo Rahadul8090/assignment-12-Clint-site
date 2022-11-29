@@ -5,8 +5,27 @@ const ProdectCard = ({ prodect }) => {
     const { user } = useContext(authContext)
     const { name, phoneNumber, location, userPhoto, email,
         brand, orgPrice, resellPrice, imgUrl, disc, DisplayTime, divaisname } = prodect
-    // console.log(name)
 
+        const FromValue =event =>{
+            event.preventDefault();
+            const data = event.target
+            const name = data.objectName.value
+            const  brand = data.brand.value
+            const Prodectimg = data.ProdectimgUrl.value
+            const  UserPhoto = data.photoUrl.value
+            const userName = data.userName.value
+            const  userEmail = data.UserEmail.value
+            const UserPhone  = data.UserPhone.value
+            const UserLocation  = data.UserLocation.value
+            const price  = data.price.value
+        
+
+            const AllDataValue ={
+                name,brand,Prodectimg,UserPhone,UserLocation,UserPhoto,userName,userEmail,price
+            }
+            console.log(AllDataValue)
+         }
+ 
     return (
         <div className='shadow-lg shadow-black '>
             <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100">
@@ -39,16 +58,17 @@ const ProdectCard = ({ prodect }) => {
                     <div className="modal">
                         <div className="modal-box relative">
                             <label htmlFor="byProdect" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                            <form>
-                                <input name='divaisname' type="text" defaultValue={divaisname} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                                <input name='number' type="text" defaultValue={brand} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                                <input name='location' type="text" defaultValue={imgUrl} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                                <input name='orgPrice' type="text" defaultValue={user.photoURL} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                                <input name='orgPrice' type="text" defaultValue={user.displayName} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                                <input name='orgPrice' type="text" defaultValue={user.email} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                                <input name='orgPrice' type="text"  placeholder='ENter Your Phone Number' className="input input-bordered m-2 input-info w-full max-w-xs" />
-                                <input name='orgPrice' type="text"  placeholder='Your Location' className="input input-bordered m-2 input-info w-full max-w-xs" />
-                                <input name='orgPrice' type="text"  placeholder='Price' className="input input-bordered m-2 input-info w-full max-w-xs" />
+                            <form onSubmit={FromValue}>
+                                <input required readOnly name='objectName' type="text" defaultValue={divaisname} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                <input required readOnly name='brand' type="text" defaultValue={brand} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                <input required readOnly name='ProdectimgUrl' type="text" defaultValue={imgUrl} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                <input required readOnly name='photoUrl' type="text" defaultValue={user.photoURL} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                <input required readOnly name='userName' type="text" defaultValue={user.displayName} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                <input required readOnly name='UserEmail' type="text" defaultValue={user.email} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                <input required readOnly name='UserPhone' type="text"  placeholder='ENter Your Phone Number' className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                <input required name='UserLocation' type="text"  placeholder='Your Location' className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                <input required name='price' type="text"  placeholder='Price' className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                <button type='submit' className='w-full btn btn-info m-2 max-w-xs'>Submit</button>
                              </form>
                         </div>
                     </div>

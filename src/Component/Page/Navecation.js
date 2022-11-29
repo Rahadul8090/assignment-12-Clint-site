@@ -5,7 +5,7 @@ import { authContext } from "../Auth/Contex";
 export default function NavBar() {
     const [navbar, setNavbar] = useState(false);
     const { user, signOuts } = useContext(authContext)
-    console.log(user)
+    // console.log(user)
 
     const signOut = () => {
         signOuts()

@@ -90,7 +90,7 @@ const SignUp = () => {
                                 <label className="label">
                                     <span className="label-text">Photo Url</span>
                                 </label>
-                                <input {...register("image", {required:true})} type="file" name='image' className="input " />
+                                <input {...register("image", {required:true})} required type="file" name='image' className="input " />
                             </div>
                             <div className="form-control">
                                 <label className="label">
