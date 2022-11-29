@@ -9,6 +9,8 @@ import AllProdects from './Component/Page/AllProdects';
 import Categores from './Component/Page/Categores';
 import Dshbord from './Component/Page/Dshbord';
 import { Toaster } from 'react-hot-toast';
+import DeshBordLaout from './Component/main/DeshBordLaout';
+import Prodect from './Component/Page/Prodect';
 
 
 function App() {
@@ -34,19 +36,23 @@ function App() {
           element: <Categores></Categores>
         },
         {
-          path: 'deshbord',
-          element: <Dshbord></Dshbord>
+          path: '/:name',
+          element: <AllProdects></AllProdects>,
         },
         {
-          path: '/:id',
+          path: 'categore/:name',
           element: <AllProdects></AllProdects>,
-         },
+        },
         {
-          path: 'categore/:id',
-          element: <AllProdects></AllProdects>,
-         },
+          path: `categore/:name/:id`,
+          element: <Prodect></Prodect>
+        }
 
       ]
+    },
+    {
+      path: 'deshbord',
+      element: <DeshBordLaout></DeshBordLaout>
     }
   ])
   return (

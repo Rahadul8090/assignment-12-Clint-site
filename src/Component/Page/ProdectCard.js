@@ -1,54 +1,70 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { Link, useParams } from 'react-router-dom';
 import { authContext } from '../Auth/Contex';
 
 const ProdectCard = ({ prodect }) => {
+    const {name} = useParams()
     const { user } = useContext(authContext)
-    const { name, phoneNumber, location, userPhoto, email,
-        brand, orgPrice, resellPrice, imgUrl, disc, DisplayTime, divaisname } = prodect
+    const { names, phoneNumber, location, userPhoto, email,
+        brand, orgPrice, resellPrice, imgUrl, disc, DisplayTime, divaisname, _id} = prodect
 
-        const FromValue =event =>{
-            event.preventDefault();
-            const data = event.target
-            const name = data.objectName.value
-            const  brand = data.brand.value
-            const Prodectimg = data.ProdectimgUrl.value
-            const  UserPhoto = data.photoUrl.value
-            const userName = data.userName.value
-            const  userEmail = data.UserEmail.value
-            const UserPhone  = data.UserPhone.value
-            const UserLocation  = data.UserLocation.value
-            const price  = data.price.value
-        
 
-            const AllDataValue ={
-                name,brand,Prodectimg,UserPhone,UserLocation,UserPhoto,userName,userEmail,price
-            }
-            fetch('http://localhost:5000/reqsell',{
-                method:'POST',
-                headers:{
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(AllDataValue)
-            }) 
+    // const [data, setData] = useState([])
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/prodect')
+    //         .then(res => res.json())
+    //         .then(samsung => {
+    //             const user = samsung.user
+    //             console.log(user)
+    //              setData(prodect)
+    //         })
+    // }, [])
+    // console.log(data)
+
+    const FromValue = event => {
+        event.preventDefault();
+        const data = event.target
+        const names = data.objectName.value
+        const brand = data.brand.value
+        const Prodectimg = data.ProdectimgUrl.value
+        const UserPhoto = data.photoUrl.value
+        const userName = data.userName.value
+        const userEmail = data.UserEmail.value
+        const UserPhone = data.UserPhone.value
+        const UserLocation = data.UserLocation.value
+        const price = data.price.value
+
+
+        const AllDataValue = {
+            names, brand, Prodectimg, UserPhone, UserLocation, UserPhoto, userName, userEmail, price
+        }
+        fetch('http://localhost:5000/reqsell', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(AllDataValue)
+        })
             .then(res => res.json())
-            .then(datas =>{
-                if(datas.acknowledged){
+            .then(datas => {
+                if (datas.acknowledged) {
                     toast.success('Add new Product successfully')
-                     data.reset();
+                    data.reset();
                 }
             })
-            // console.log(AllDataValue)
+        // console.log(AllDataValue)
 
-         }
- 
+
+    }
+
     return (
         <div className='shadow-lg shadow-black '>
             <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100">
                 <div className="flex space-x-4">
                     <img alt="" src={userPhoto} className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500" />
                     <div className="flex flex-col space-y-1">
-                        <p className="text-sm font-semibold">{name}</p>
+                        <p className="text-sm font-semibold">{names}</p>
                         <span className="text-xs dark:text-gray-400">{DisplayTime}</span>
                     </div>
                 </div>
@@ -68,26 +84,10 @@ const ProdectCard = ({ prodect }) => {
                     </div>
                     <h2 className="mb-1 text-xl font-semibold"> {divaisname}</h2>
                     <p className="text-sm dark:text-gray-400">{disc.slice(0, 300)}...</p>
-                    <label htmlFor="byProdect" className="btn btn-info w-full mt-2">open modal</label>
 
-                    <input type="checkbox" id="byProdect" className="modal-toggle" />
-                    <div className="modal">
-                        <div className="modal-box relative">
-                            <label htmlFor="byProdect" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                            <form onSubmit={FromValue}>
-                                <input readOnly name='objectName' type="text" defaultValue={divaisname} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                                <input required readOnly name='brand' type="text" defaultValue={brand} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                                <input required readOnly name='photoUrl' type="text" defaultValue={user?.photoURL} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                                <input required readOnly name='userName' type="text" defaultValue={user?.displayName} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                                <input required readOnly name='UserEmail' type="text" defaultValue={user?.email} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                                <input required  name='UserPhone' type="text"  placeholder='ENter Your Phone Number' className="input input-bordered m-2 input-info w-full max-w-xs" />
-                                <input required name='UserLocation' type="text"  placeholder='Your Location' className="input input-bordered m-2 input-info w-full max-w-xs" />
-                                <input required name='price' type="text"  placeholder='Price' className="input input-bordered m-2 input-info w-full max-w-xs" />
-                                 <textarea required  name='ProdectimgUrl' className="textarea textarea-primary w-full m-2" placeholder="Your Ingformation"></textarea>
-                                <button type='submit' className='w-full btn btn-info m-2 max-w-xs'>Submit</button>
-                             </form>
-                        </div>
-                    </div>
+                    <Link to={`/categore/${name}/${_id}`}><button className='w-full btn btn-info m-2'>See Details</button></Link>
+
+                  
                 </div>
             </div>
         </div>

@@ -7,26 +7,26 @@ import { authContext } from '../Auth/Contex';
 import ProdectCard from './ProdectCard';
 
 const Samsung = () => {
-    const id = useParams()
-    // console.log(id)
+    const  categoreName = useParams()
+    console.log(categoreName)
     const { user } = useContext(authContext)
     const [data, setData] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/prodect')
             .then(res => res.json())
             .then(samsung => {
-                const prodect = samsung.filter(categorepro => categorepro.brand === id.id)
+                const prodect = samsung.filter(categorepro => categorepro.brand === categoreName.name)
                 // console.log(prodect)
                 setData(prodect)
             })
-    }, [id.id])
+    }, [categoreName.name])
     // console.log(data)
 
     const localData = event => {
         event.preventDefault();
         // console.log(event.target.photoURL.value)
         const form = event.target
-        const name = form.name.value
+        const names = form.name.value
         const userPhoto = form.userPhoto.value
         const email = form.userEmail.value
         const brand = form.brand.value
@@ -41,7 +41,7 @@ const Samsung = () => {
 
 
         const AllData = {
-            name, phoneNumber, location, userPhoto, email,
+            names, phoneNumber, location, userPhoto, email,
             brand, orgPrice, resellPrice, imgUrl, disc, DisplayTime,divaisname
         }
 
@@ -64,11 +64,7 @@ const Samsung = () => {
             .catch(err => console.error(err))
         console.log(AllData)
     }
-
-
-
-
-
+ 
     return (
         <div>
             <div>
@@ -76,7 +72,7 @@ const Samsung = () => {
             </div>
             <div className='w-5/6 m-auto '>
                     <label htmlFor="my-modal-4" className='w-60 h-60 btn btn-info p-5 mt-5'>Add Prodect<AiOutlinePlus className='w-60 h-60 ' /></label>
-                <div className='text-center grid md:grid-cols-2 gap-5 mt-10 lg:grid-cols-3'>
+                <div className='text-center grid md:grid-cols-1 gap-5 mt-10 lg:grid-cols-2'>
                     {
                         data.map(card =>
                             <ProdectCard
@@ -91,12 +87,12 @@ const Samsung = () => {
                 <div className="modal">
                     <div className="modal-box relative">
                         <label htmlFor="my-modal-4" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                        <h3 className="text-lg font-bold"> Rahad Vai</h3>
+                        <h3 className="text-lg font-bold">Add Prodect</h3>
                         <form onSubmit={localData} className='w-96 m-auto'>
-                            <input readOnly name='name' type="text" placeholder="name" defaultValue={user?.displayName} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                            <input readOnly name='names' type="text" placeholder="name" defaultValue={user?.displayName} className="input input-bordered m-2 input-info w-full max-w-xs" />
                             <input readOnly name='userPhoto' type="text" placeholder="" defaultValue={user?.photoURL} className="input input-bordered m-2 input-info w-full max-w-xs" />
                             <input readOnly name='userEmail' type="text" placeholder="email" defaultValue={user?.email} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                            <input readOnly name='brand' type="text" placeholder="brand" defaultValue={id?.id} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                            <input readOnly name='brand' type="text" placeholder="brand" defaultValue={categoreName.name} className="input input-bordered m-2 input-info w-full max-w-xs" />
                             <input required name='divaisname' type="text" placeholder="Divais Name" className="input input-bordered m-2 input-info w-full max-w-xs" />
                             <input required name='number' type="number" placeholder="Phone Number" className="input input-bordered m-2 input-info w-full max-w-xs" />
                             <input required name='location' type="text" placeholder="Location" className="input input-bordered m-2 input-info w-full max-w-xs" />
