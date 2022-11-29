@@ -28,30 +28,18 @@ const SignUp = () => {
         })
             .then(res => res.json())
             .then(datas => {
-                 if(datas.data.id){
-                     setUrls(datas.data.url) 
-                 }  
+                signUps(data.email, data.password)
+                .then(res => {
+                    const user = res.user
+                    toast.success('Sign In Succrss')
+                     updateUserProfile(name, datas.data.url)
+                     .then()
+                     .catch(err => console.error(err))
+                })
+                .catch(err => console.error(err))
               }
             )
             console.log(urls)
-        const handleUpdateUserProfile = (name, urls) => {
-            const profile ={
-                displayName: name,
-                photoURL: urls
-            }
-            updateUserProfile(profile)
-            .then({})
-            .catch(erro => console.error(erro))
-        }
-
-
-        signUps(data.email, data.password)
-            .then(res => {
-                const user = res.user
-                handleUpdateUserProfile(name, urls)
-                console.log(user)
-            })
-            .catch(err => console.error(err))
     };
 
 
@@ -60,7 +48,6 @@ const SignUp = () => {
         GoogleSignIn(Provider)
             .then(data => {
                 const user = data.user
-                console.log(user)
                  toast.success('Sign In Succrss')
 
             })

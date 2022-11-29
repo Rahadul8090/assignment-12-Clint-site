@@ -21,8 +21,11 @@ const Contex = ({ children }) => {
      const signINs =(email, password)=>{
         return signInWithEmailAndPassword(auth, email, password)
      }
-     const updateUserProfile = (profile) => {
-        return updateProfile(auth.currentUser, profile);
+     const updateUserProfile = (name, photoURL) => {
+        return updateProfile(auth.currentUser, {
+            displayName:name,
+            photoURL:photoURL
+        });
     }
 
     useEffect(() => {

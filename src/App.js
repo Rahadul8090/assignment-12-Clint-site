@@ -8,6 +8,7 @@ import SignUp from './Component/Auth/SignUp';
 import AllProdects from './Component/Page/AllProdects';
 import Categores from './Component/Page/Categores';
 import Dshbord from './Component/Page/Dshbord';
+import { Toaster } from 'react-hot-toast';
 
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
       <RouterProvider router={router}>
 
       </RouterProvider>
+      <Toaster></Toaster>
     </div>
   );
 }

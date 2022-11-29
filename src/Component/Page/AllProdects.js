@@ -93,10 +93,10 @@ const Samsung = () => {
                         <label htmlFor="my-modal-4" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                         <h3 className="text-lg font-bold"> Rahad Vai</h3>
                         <form onSubmit={localData} className='w-96 m-auto'>
-                            <input readOnly name='name' type="text" placeholder="name" defaultValue={user.displayName} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                            <input readOnly name='userPhoto' type="text" placeholder="" defaultValue={user.photoURL} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                            <input readOnly name='userEmail' type="text" placeholder="email" defaultValue={user.email} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                            <input readOnly name='brand' type="text" placeholder="brand" defaultValue={id.id} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                            <input readOnly name='name' type="text" placeholder="name" defaultValue={user?.displayName} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                            <input readOnly name='userPhoto' type="text" placeholder="" defaultValue={user?.photoURL} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                            <input readOnly name='userEmail' type="text" placeholder="email" defaultValue={user?.email} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                            <input readOnly name='brand' type="text" placeholder="brand" defaultValue={id?.id} className="input input-bordered m-2 input-info w-full max-w-xs" />
                             <input required name='divaisname' type="text" placeholder="Divais Name" className="input input-bordered m-2 input-info w-full max-w-xs" />
                             <input required name='number' type="number" placeholder="Phone Number" className="input input-bordered m-2 input-info w-full max-w-xs" />
                             <input required name='location' type="text" placeholder="Location" className="input input-bordered m-2 input-info w-full max-w-xs" />
