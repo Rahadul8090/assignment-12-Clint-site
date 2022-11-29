@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { authContext } from '../Auth/Contex';
 
 const ProdectCard = ({ prodect }) => {
+    const { user } = useContext(authContext)
     const { name, phoneNumber, location, userPhoto, email,
         brand, orgPrice, resellPrice, imgUrl, disc, DisplayTime, divaisname } = prodect
     // console.log(name)
@@ -31,19 +33,23 @@ const ProdectCard = ({ prodect }) => {
                     </div>
                     <h2 className="mb-1 text-xl font-semibold"> {divaisname}</h2>
                     <p className="text-sm dark:text-gray-400">{disc.slice(0, 300)}...</p>
-                     <label htmlFor="byProdect" className="btn btn-info w-full mt-2">open modal</label>
+                    <label htmlFor="byProdect" className="btn btn-info w-full mt-2">open modal</label>
 
-                     <input type="checkbox" id="byProdect" className="modal-toggle" />
+                    <input type="checkbox" id="byProdect" className="modal-toggle" />
                     <div className="modal">
                         <div className="modal-box relative">
                             <label htmlFor="byProdect" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                             <form>
-                            <input name='divaisname' type="text" placeholder="Divais Name" className="input input-bordered m-2 input-info w-full max-w-xs" />
-                            <input name='number' type="number" placeholder="Phone Number" className="input input-bordered m-2 input-info w-full max-w-xs" />
-                            <input name='location' type="text" placeholder="Location" className="input input-bordered m-2 input-info w-full max-w-xs" />
-                            <input name='orgPrice' type="number" placeholder=" Orgenal Price " className="input input-bordered m-2 input-info w-full max-w-xs" />
-                            <input name='orgPrice' type="number" placeholder=" Orgenal Price " className="input input-bordered m-2 input-info w-full max-w-xs" />
-                            </form>
+                                <input name='divaisname' type="text" defaultValue={divaisname} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                <input name='number' type="text" defaultValue={brand} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                <input name='location' type="text" defaultValue={imgUrl} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                <input name='orgPrice' type="text" defaultValue={user.photoURL} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                <input name='orgPrice' type="text" defaultValue={user.displayName} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                <input name='orgPrice' type="text" defaultValue={user.email} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                <input name='orgPrice' type="text"  placeholder='ENter Your Phone Number' className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                <input name='orgPrice' type="text"  placeholder='Your Location' className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                <input name='orgPrice' type="text"  placeholder='Price' className="input input-bordered m-2 input-info w-full max-w-xs" />
+                             </form>
                         </div>
                     </div>
                 </div>
