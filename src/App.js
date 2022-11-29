@@ -44,14 +44,14 @@ function App() {
           element: <AllProdects></AllProdects>,
         },
         {
-          path: `categore/:name/:id`,
+          path: `categore/:name/:id=`,
           element: <Prodect></Prodect>
         }
 
       ]
     },
     {
-      path: 'deshbord',
+      path: '/deshbord',
       element: <DeshBordLaout></DeshBordLaout>
     }
   ])

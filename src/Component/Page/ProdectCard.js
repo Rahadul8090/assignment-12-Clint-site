@@ -22,41 +22,7 @@ const ProdectCard = ({ prodect }) => {
     // }, [])
     // console.log(data)
 
-    const FromValue = event => {
-        event.preventDefault();
-        const data = event.target
-        const names = data.objectName.value
-        const brand = data.brand.value
-        const Prodectimg = data.ProdectimgUrl.value
-        const UserPhoto = data.photoUrl.value
-        const userName = data.userName.value
-        const userEmail = data.UserEmail.value
-        const UserPhone = data.UserPhone.value
-        const UserLocation = data.UserLocation.value
-        const price = data.price.value
-
-
-        const AllDataValue = {
-            names, brand, Prodectimg, UserPhone, UserLocation, UserPhoto, userName, userEmail, price
-        }
-        fetch('http://localhost:5000/reqsell', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(AllDataValue)
-        })
-            .then(res => res.json())
-            .then(datas => {
-                if (datas.acknowledged) {
-                    toast.success('Add new Product successfully')
-                    data.reset();
-                }
-            })
-        // console.log(AllDataValue)
-
-
-    }
+    
 
     return (
         <div className='shadow-lg shadow-black '>
