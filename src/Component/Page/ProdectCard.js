@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { authContext } from '../Auth/Contex';
 
 const ProdectCard = ({ prodect }) => {
@@ -23,7 +24,22 @@ const ProdectCard = ({ prodect }) => {
             const AllDataValue ={
                 name,brand,Prodectimg,UserPhone,UserLocation,UserPhoto,userName,userEmail,price
             }
-            console.log(AllDataValue)
+            fetch('http://localhost:5000/reqsell',{
+                method:'POST',
+                headers:{
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(AllDataValue)
+            }) 
+            .then(res => res.json())
+            .then(datas =>{
+                if(datas.acknowledged){
+                    toast.success('Add new Product successfully')
+                     data.reset();
+                }
+            })
+            // console.log(AllDataValue)
+
          }
  
     return (
@@ -59,15 +75,15 @@ const ProdectCard = ({ prodect }) => {
                         <div className="modal-box relative">
                             <label htmlFor="byProdect" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                             <form onSubmit={FromValue}>
-                                <input required readOnly name='objectName' type="text" defaultValue={divaisname} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                <input readOnly name='objectName' type="text" defaultValue={divaisname} className="input input-bordered m-2 input-info w-full max-w-xs" />
                                 <input required readOnly name='brand' type="text" defaultValue={brand} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                                <input required readOnly name='ProdectimgUrl' type="text" defaultValue={imgUrl} className="input input-bordered m-2 input-info w-full max-w-xs" />
                                 <input required readOnly name='photoUrl' type="text" defaultValue={user.photoURL} className="input input-bordered m-2 input-info w-full max-w-xs" />
                                 <input required readOnly name='userName' type="text" defaultValue={user.displayName} className="input input-bordered m-2 input-info w-full max-w-xs" />
                                 <input required readOnly name='UserEmail' type="text" defaultValue={user.email} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                                <input required readOnly name='UserPhone' type="text"  placeholder='ENter Your Phone Number' className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                <input required  name='UserPhone' type="text"  placeholder='ENter Your Phone Number' className="input input-bordered m-2 input-info w-full max-w-xs" />
                                 <input required name='UserLocation' type="text"  placeholder='Your Location' className="input input-bordered m-2 input-info w-full max-w-xs" />
                                 <input required name='price' type="text"  placeholder='Price' className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                 <textarea required  name='ProdectimgUrl' className="textarea textarea-primary w-full m-2" placeholder="Your Ingformation"></textarea>
                                 <button type='submit' className='w-full btn btn-info m-2 max-w-xs'>Submit</button>
                              </form>
                         </div>
