@@ -17,9 +17,9 @@ const Samsung = () => {
             .then(samsung => {
                 const prodect = samsung.filter(categorepro => categorepro.brand === id.id)
                 console.log(prodect)
-                 setData(prodect)
+                setData(prodect)
             })
-        }, [id.id])
+    }, [id.id])
     console.log(data)
 
     const localData = event => {
@@ -36,11 +36,13 @@ const Samsung = () => {
         const disc = form.disc.value
         const phoneNumber = form.number.value
         const location = form.location.value
+        const DisplayTime = form.time.value
+        const  divaisname = form.divaisname.value
 
 
         const AllData = {
             name, phoneNumber, location, userPhoto, email,
-            brand, orgPrice, resellPrice, imgUrl, disc
+            brand, orgPrice, resellPrice, imgUrl, disc, DisplayTime,divaisname
         }
 
         fetch('http://localhost:5000/prodect', {
@@ -72,18 +74,18 @@ const Samsung = () => {
             <div>
                 <img alt='' className='w-5/6 m-auto  h-96 ' src='https://www.yugatech.com/wp-content/uploads/2022/03/Samsung-Galaxy-M33-5G-Banner-720x270.jpg' />
             </div>
-            <div>
-                <div className='shadow-lg shadow-black w-5/6 m-auto text-center grid grid-cols-3'> 
+            <div className='w-5/6 m-auto '>
+                    <label htmlFor="my-modal-4" className='w-60 h-60 btn btn-info p-5 mt-5'>Add Prodect<AiOutlinePlus className='w-60 h-60 ' /></label>
+                <div className='text-center grid md:grid-cols-2 gap-5 mt-10 lg:grid-cols-3'>
                     {
-                    data.map(card => 
-                        <ProdectCard
-                        key={card._id}
-                        prodect={card}
-                        ></ProdectCard>
+                        data.map(card =>
+                            <ProdectCard
+                                key={card._id}
+                                prodect={card}
+                            ></ProdectCard>
                         )
-                   }
-                    </div>
-                    <label htmlFor="my-modal-4">Add Prodect<AiOutlinePlus className='w-60 h-60 ' /></label>
+                    }
+                </div>
 
                 <input type="checkbox" id="my-modal-4" className="modal-toggle" />
                 <div className="modal">
@@ -95,11 +97,12 @@ const Samsung = () => {
                             <input name='userPhoto' type="text" placeholder="" defaultValue={user.photoURL} className="input input-bordered m-2 input-info w-full max-w-xs" />
                             <input name='userEmail' type="text" placeholder="email" defaultValue={user.email} className="input input-bordered m-2 input-info w-full max-w-xs" />
                             <input name='brand' type="text" placeholder="brand" defaultValue={id.id} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                            <input name='divaisname' type="text" placeholder="Divais Name" className="input input-bordered m-2 input-info w-full max-w-xs" />
                             <input name='number' type="number" placeholder="Phone Number" className="input input-bordered m-2 input-info w-full max-w-xs" />
                             <input name='location' type="text" placeholder="Location" className="input input-bordered m-2 input-info w-full max-w-xs" />
                             <input name='orgPrice' type="number" placeholder=" Orgenal Price " className="input input-bordered m-2 input-info w-full max-w-xs" />
                             <input name='resellPrice' type="number" placeholder="Resell Price " className="input input-bordered m-2 input-info w-full max-w-xs" />
-                            <input name='time' type="date" placeholder="pu Time" className="input input-bordered m-2 input-info w-full max-w-xs" />
+                            <input name='time' type="date" placeholder="public Time" className="input input-bordered m-2 input-info w-full max-w-xs" />
                             <input name='prodectimg' type="text" placeholder="Prodect img Link" className="input input-bordered m-2 input-info w-full max-w-xs" />
                             <textarea name='disc' className="textarea textarea-primary w-full m-2" placeholder="Bio"></textarea>
                             <button type='submit' className='btn w-full m-2'>Submit</button>
