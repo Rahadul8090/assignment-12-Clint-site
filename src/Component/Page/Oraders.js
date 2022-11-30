@@ -17,8 +17,8 @@ const Oraders = () => {
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
+                            <th>Email/Number</th>
+                            <th>Price</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -45,11 +45,11 @@ const Oraders = () => {
                                             <td>
                                                 {oraders.UserPhone}
                                                 <br />
-                                                <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
+                                                <span className="badge badge-ghost badge-sm">{oraders.userEmail }</span>
                                             </td>
-                                            <td>Purple</td>
+                                            <td>{oraders.price}Tk</td>
                                             <th>
-                                                <button className="btn btn-ghost btn-xs">details</button>
+                                                <button className="btn btn-ghost btn-xs">Premet Now</button>
                                             </th>
                                         </>
 
@@ -58,15 +58,6 @@ const Oraders = () => {
                             )
                         }
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
-                            <th></th>
-                        </tr>
-                    </tfoot>
 
                 </table>
             </div>
