@@ -18,7 +18,7 @@ const Prodect = () => {
         const data = event.target
         const names = data.objectName.value
         const brand = data.brand.value
-        const Prodectimg = data.ProdectimgUrl.value
+        const Prodectimg = data.prodectIMG.value
         const UserPhoto = data.photoUrl.value
         const userName = data.userName.value
         const userEmail = data.UserEmail.value
@@ -92,16 +92,16 @@ const Prodect = () => {
                 <div className="modal-box relative">
                     <label htmlFor="byProdect" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <form onSubmit={FromValue}>
-                        <input readOnly name='objectName' type="text" defaultValue={divaisname} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                        <input required readOnly name='brand' type="text" defaultValue={brand} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                        <input required readOnly name='photoUrl' type="text" defaultValue={user?.photoURL} className="input input-bordered m-2 input-info w-full max-w-xs" />
                         <input required readOnly name='userName' type="text" defaultValue={user?.displayName} className="input input-bordered m-2 input-info w-full max-w-xs" />
                         <input required readOnly name='UserEmail' type="text" defaultValue={user?.email} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                        <input required readOnly name='photoUrl' type="text" defaultValue={user?.photoURL} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                        <input required readOnly name='prodectIMG' type="text" defaultValue={imgUrl} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                        <input required readOnly name='brand' type="text" defaultValue={brand} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                        <input readOnly name='objectName' type="text" defaultValue={divaisname} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                        <input required name='price' type="text" placeholder='Price' defaultValue={resellPrice} className="input input-bordered m-2 input-info w-full max-w-xs" />
                         <input required name='UserPhone' type="text" placeholder='ENter Your Phone Number' className="input input-bordered m-2 input-info w-full max-w-xs" />
                         <input required name='UserLocation' type="text" placeholder='Your Location' className="input input-bordered m-2 input-info w-full max-w-xs" />
-                        <input required name='price' type="text" placeholder='Price' defaultValue={resellPrice} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                        <textarea required name='ProdectimgUrl' className="textarea textarea-primary w-full m-2 max-w-xs" placeholder="Your Ingformation"></textarea>
-                        <button type='submit' className='w-full btn btn-info m-2 max-w-xs'>Submit</button>
+                         <button type='submit' className='w-full btn btn-info m-2 max-w-xs'>Submit</button>
                     </form>
                 </div>
             </div>
