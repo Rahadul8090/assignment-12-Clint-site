@@ -52,6 +52,7 @@ const Prodect = () => {
         brand, orgPrice, resellPrice, imgUrl, disc, DisplayTime, divaisname } = prodect
     return (
         <div className='w-5/6 m-auto '>
+            <h1 className='w-full text-3xl p-5 font-bold text-center btn-info'>Product Details</h1>
             <div className="w-full p-4 shadow-md dark:bg-gray-900 dark:text-gray-100">
                 <div className="flex justify-between pb-4 border-bottom">
                     <div className="flex items-center">

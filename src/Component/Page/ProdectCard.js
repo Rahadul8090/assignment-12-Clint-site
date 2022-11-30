@@ -26,6 +26,7 @@ const ProdectCard = ({ prodect }) => {
 
     return (
         <div className='shadow-lg shadow-black '>
+        
             <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100">
                 <div className="flex space-x-4">
                     <img alt="" src={userPhoto} className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500" />

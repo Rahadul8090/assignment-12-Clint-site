@@ -7,7 +7,7 @@ import { authContext } from '../Auth/Contex';
 import ProdectCard from './ProdectCard';
 
 const Samsung = () => {
-    const  categoreName = useParams()
+    const categoreName = useParams()
     console.log(categoreName)
     const { user } = useContext(authContext)
     const [data, setData] = useState([])
@@ -37,12 +37,12 @@ const Samsung = () => {
         const phoneNumber = form.number.value
         const location = form.location.value
         const DisplayTime = form.time.value
-        const  divaisname = form.divaisname.value
+        const divaisname = form.divaisname.value
 
 
         const AllData = {
             names, phoneNumber, location, userPhoto, email,
-            brand, orgPrice, resellPrice, imgUrl, disc, DisplayTime,divaisname
+            brand, orgPrice, resellPrice, imgUrl, disc, DisplayTime, divaisname
         }
 
         fetch('http://localhost:5000/prodect', {
@@ -64,15 +64,16 @@ const Samsung = () => {
             .catch(err => console.error(err))
         console.log(AllData)
     }
- 
+
     return (
         <div>
             <div>
                 <img alt='' className='w-5/6 m-auto  h-96 ' src='https://www.yugatech.com/wp-content/uploads/2022/03/Samsung-Galaxy-M33-5G-Banner-720x270.jpg' />
+
             </div>
             <div className='w-5/6 m-auto '>
-                    <label htmlFor="my-modal-4" className='w-60 h-60 btn btn-info p-5 mt-5'>Add Prodect<AiOutlinePlus className='w-60 h-60 ' /></label>
-                <div className='text-center grid md:grid-cols-1 gap-5 mt-10 lg:grid-cols-2'>
+                <h1 className='w-full text-3xl p-5 font-bold text-center text-slate-200 mt-3 shadow-md shadow-black bg-gray-600 rounded-md'>{categoreName.name} Section</h1>
+                 <div className='text-center grid md:grid-cols-1 gap-5 mt-10 lg:grid-cols-2'>
                     {
                         data.map(card =>
                             <ProdectCard
@@ -82,6 +83,7 @@ const Samsung = () => {
                         )
                     }
                 </div>
+                <label htmlFor="my-modal-4" className='w-60 h-60 btn btn-info p-5 mt-5'>Add Prodect<AiOutlinePlus className='w-60 h-60 ' /></label>
 
                 <input type="checkbox" id="my-modal-4" className="modal-toggle" />
                 <div className="modal">
