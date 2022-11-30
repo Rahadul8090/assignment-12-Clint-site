@@ -63,6 +63,10 @@ function App() {
         {
           path:'/deshbord/oraders',
           element: <Oraders></Oraders>
+        },
+        {
+          path: `/deshbord/:name/:id`,
+          element: <Prodect></Prodect>
         }
       ]
     }

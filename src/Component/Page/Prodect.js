@@ -7,7 +7,7 @@ const Prodect = () => {
     const { user } = useContext(authContext)
     const [prodect, setProdect] = useState([])
     const { id } = useParams();
-    console.log(id);
+    // console.log(id);
     useEffect(() => {
         fetch(`http://localhost:5000/prodect/${id}`)
             .then(res => res.json())

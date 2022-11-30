@@ -26,7 +26,7 @@ const Samsung = () => {
         event.preventDefault();
         // console.log(event.target.photoURL.value)
         const form = event.target
-        const names = form.namessssssss.value
+        const names = form.names.value
         const userPhoto = form.userPhoto.value
         const email = form.userEmail.value
         const brand = form.brand.value
