@@ -68,10 +68,10 @@ export default function NavBar() {
                                 <Link to="/">Home </Link>
                             </li>
                             <li className="text-gray-600 hover:text-blue-600">
-                                <Link to="categore">categore</Link>
+                                <Link to="/categore">categore</Link>
                             </li>
                             <li className="text-gray-600 hover:text-blue-600">
-                                <Link to="deshbord">DeshBord</Link>
+                                <Link to="/deshbord">DeshBord</Link>
                             </li>
                            
                             <li className="text-gray-600 hover:text-blue-600">

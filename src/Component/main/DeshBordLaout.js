@@ -18,8 +18,8 @@ const DeshBord = () => {
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-                        <li><Link>Oraders</Link></li>
-                        <li><Link>All Product</Link></li>
+                        <li><Link to='oraders'>Oraders</Link></li>
+                        <li><Link to='allprodect'>All Product</Link></li>
                     </ul>
 
                 </div>

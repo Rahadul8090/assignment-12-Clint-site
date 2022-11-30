@@ -11,6 +11,8 @@ import Dshbord from './Component/Page/Dshbord';
 import { Toaster } from 'react-hot-toast';
 import DeshBordLaout from './Component/main/DeshBordLaout';
 import Prodect from './Component/Page/Prodect';
+import ShowAllProdect from './Component/Page/ShowAllProdect';
+import Oraders from './Component/Page/Oraders';
 
 
 function App() {
@@ -40,11 +42,11 @@ function App() {
           element: <AllProdects></AllProdects>,
         },
         {
-          path: 'categore/:name',
+          path: '/categore/:name',
           element: <AllProdects></AllProdects>,
         },
         {
-          path: `categore/:name/:id=`,
+          path: `/categore/:name/:id`,
           element: <Prodect></Prodect>
         }
 
@@ -52,7 +54,17 @@ function App() {
     },
     {
       path: '/deshbord',
-      element: <DeshBordLaout></DeshBordLaout>
+      element: <DeshBordLaout></DeshBordLaout>,
+      children:[
+        {
+          path:'/deshbord/allprodect',
+          element:<ShowAllProdect></ShowAllProdect>
+        },
+        {
+          path:'/deshbord/oraders',
+          element: <Oraders></Oraders>
+        }
+      ]
     }
   ])
   return (
