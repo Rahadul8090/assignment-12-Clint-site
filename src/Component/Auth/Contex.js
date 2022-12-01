@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
-import app from './App';
-import { getAuth, signInWithPopup, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile} from 'firebase/auth'
+ import { getAuth, signInWithPopup, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile} from 'firebase/auth'
 import { onAuthStateChanged, } from 'firebase/auth'
+import app from '../../fervais.config';
 
 
 const auth = getAuth(app)

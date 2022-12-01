@@ -11,6 +11,8 @@ const Samsung = () => {
     console.log(categoreName)
     const { user } = useContext(authContext)
     const [data, setData] = useState([])
+    const [users, setUser] = useState([])
+
     useEffect(() => {
         fetch('http://localhost:5000/prodect')
             .then(res => res.json())
@@ -21,6 +23,13 @@ const Samsung = () => {
             })
     }, [categoreName.name])
     // console.log(data)
+    useEffect(() => {
+        fetch('http://localhost:5000/allusers?role=Sealler')
+            .then(res => res.json())
+            .then(data => setUser(data))
+    }
+
+        , [])
 
     const localData = event => {
         event.preventDefault();
@@ -59,6 +68,7 @@ const Samsung = () => {
 
                     toast.success('Add new Product successfully')
                     form.reset();
+                    window.location.reload(false);
                 }
             })
             .catch(err => console.error(err))
@@ -73,7 +83,7 @@ const Samsung = () => {
             </div>
             <div className='w-5/6 m-auto '>
                 <h1 className='w-full text-3xl p-5 font-bold text-center text-slate-200 mt-3 shadow-md shadow-black bg-gray-600 rounded-md'>{categoreName.name} Section</h1>
-                 <div className='text-center grid md:grid-cols-1 gap-5 mt-10 lg:grid-cols-2'>
+                <div className='text-center grid md:grid-cols-1 gap-5 mt-10 lg:grid-cols-2'>
                     {
                         data.map(card =>
                             <ProdectCard
@@ -83,30 +93,38 @@ const Samsung = () => {
                         )
                     }
                 </div>
-                <label htmlFor="my-modal-4" className='w-60 h-60 btn btn-info p-5 mt-5'>Add Prodect<AiOutlinePlus className='w-60 h-60 ' /></label>
+                {users.map(user =>
+                    <div>
+                        {user.role &
+                            <div>
+                                <label htmlFor="my-modal-4" className='w-60 h-60 btn btn-info p-5 mt-5'>Add Prodect<AiOutlinePlus className='w-60 h-60 ' /></label>
 
-                <input type="checkbox" id="my-modal-4" className="modal-toggle" />
-                <div className="modal">
-                    <div className="modal-box relative">
-                        <label htmlFor="my-modal-4" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                        <h3 className="text-lg font-bold">Add Prodect</h3>
-                        <form onSubmit={localData} className='w-96 m-auto'>
-                            <input readOnly name='names' type="text" placeholder="name" defaultValue={user?.displayName} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                            <input readOnly name='userPhoto' type="text" placeholder="" defaultValue={user?.photoURL} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                            <input readOnly name='userEmail' type="text" placeholder="email" defaultValue={user?.email} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                            <input readOnly name='brand' type="text" placeholder="brand" defaultValue={categoreName.name} className="input input-bordered m-2 input-info w-full max-w-xs" />
-                            <input required name='divaisname' type="text" placeholder="Divais Name" className="input input-bordered m-2 input-info w-full max-w-xs" />
-                            <input required name='number' type="number" placeholder="Phone Number" className="input input-bordered m-2 input-info w-full max-w-xs" />
-                            <input required name='location' type="text" placeholder="Location" className="input input-bordered m-2 input-info w-full max-w-xs" />
-                            <input required name='orgPrice' type="number" placeholder=" Orgenal Price " className="input input-bordered m-2 input-info w-full max-w-xs" />
-                            <input required name='resellPrice' type="number" placeholder="Resell Price " className="input input-bordered m-2 input-info w-full max-w-xs" />
-                            <input required name='time' type="date" placeholder="public Time" className="input input-bordered m-2 input-info w-full max-w-xs" />
-                            <input required name='prodectimg' type="text" placeholder="Prodect img Link" className="input input-bordered m-2 input-info w-full max-w-xs" />
-                            <textarea required name='disc' className="textarea textarea-primary w-full m-2" placeholder="Bio"></textarea>
-                            <button type='submit' className='btn w-full m-2'>Submit</button>
-                        </form>
+                                <input type="checkbox" id="my-modal-4" className="modal-toggle" />
+                                <div className="modal">
+                                    <div className="modal-box relative">
+                                        <label htmlFor="my-modal-4" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                        <h3 className="text-lg font-bold">Add Prodect</h3>
+                                        <form onSubmit={localData} className='w-96 m-auto'>
+                                            <input readOnly name='names' type="text" placeholder="name" defaultValue={user?.displayName} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                            <input readOnly name='userPhoto' type="text" placeholder="" defaultValue={user?.photoURL} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                            <input readOnly name='userEmail' type="text" placeholder="email" defaultValue={user?.email} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                            <input readOnly name='brand' type="text" placeholder="brand" defaultValue={categoreName.name} className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                            <input required name='divaisname' type="text" placeholder="Divais Name" className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                            <input required name='number' type="number" placeholder="Phone Number" className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                            <input required name='location' type="text" placeholder="Location" className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                            <input required name='orgPrice' type="number" placeholder=" Orgenal Price " className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                            <input required name='resellPrice' type="number" placeholder="Resell Price " className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                            <input required name='time' type="date" placeholder="public Time" className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                            <input required name='prodectimg' type="text" placeholder="Prodect img Link" className="input input-bordered m-2 input-info w-full max-w-xs" />
+                                            <textarea required name='disc' className="textarea textarea-primary w-full m-2" placeholder="Bio"></textarea>
+                                            <button type='submit' className='btn w-full m-2'>Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        }
                     </div>
-                </div>
+                )}
             </div>
         </div>
     );

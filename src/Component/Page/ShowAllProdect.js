@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 
 const ShowAllProdect = () => {
     const {name} = useParams()
-    console.log(name)
+    // console.log(name)  
     const [data, setData] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/prodect')

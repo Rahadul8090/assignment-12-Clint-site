@@ -70,9 +70,10 @@ export default function NavBar() {
                             <li className="text-gray-600 hover:text-blue-600">
                                 <Link to="/categore">categore</Link>
                             </li>
-                            <li className="text-gray-600 hover:text-blue-600">
+                            {user?.uid &&
+                                <li className="text-gray-600 hover:text-blue-600">
                                 <Link to="/deshbord">DeshBord</Link>
-                            </li>
+                            </li>}
                            
                             <li className="text-gray-600 hover:text-blue-600">
                                 <Link to="">Blog </Link>

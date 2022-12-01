@@ -12,6 +12,8 @@ import Prodect from './Component/Page/Prodect';
 import ShowAllProdect from './Component/Page/ShowAllProdect';
 import Oraders from './Component/Page/Oraders';
 import PrivetRout from './Component/main/PrivatRout';
+ import AllBayer from './Component/Page/AllBayer';
+ import Allseller from './Component/Page/AllSeler';
 
 
 function App() {
@@ -71,6 +73,14 @@ function App() {
         {
           path: `/deshbord/:name/:id`,
           element: <Prodect></Prodect>
+        },
+        {
+          path:'/deshbord/allseler',
+          element: <Allseller></Allseller>
+        },
+        {
+          path:'/deshbord/allBayer',
+          element: <AllBayer></AllBayer>
         }
       ]
     }

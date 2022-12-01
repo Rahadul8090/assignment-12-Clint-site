@@ -8,7 +8,7 @@ const Home = () => {
             .then(res => res.json())
             .then(samsung => setCategores(samsung))
     }, [])
-    console.log(categores)
+    // console.log(categores)
 
 
     
@@ -46,13 +46,10 @@ const Home = () => {
             </div>
             <div>
                 <div className="card lg:card-side bg-base-100 shadow-xl">
-                    <figure><img src="https://placeimg.com/400/400/arch" alt="Album" /></figure>
+                    <figure><img src='https://www.a1fonz.com/assets/img/bae.jpg' alt="Album" /></figure>
                     <div className="card-body">
-                        <h2 className="card-title">New album is released!</h2>
-                        <p>Click the button to listen on Spotiwhy app.</p>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Listen</button>
-                        </div>
+                        <h2 className="card-title">New album released!</h2>
+                        <p>1/01/2023</p>
                     </div>
                 </div>
 
@@ -60,7 +57,7 @@ const Home = () => {
             <div className='grid lg:grid-cols-3 gap-2 mt-5 md:grid-cols-2 w-11/12 m-auto'>
                 {
                     categores.map(categore =>
-                        <div className="card w-80 bg-base-100 shadow-xl image-full">
+                        <div key={categore._id} className="card w-80 bg-base-100 shadow-xl image-full">
                             <figure><img src={categore.img} alt="Shoes" /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">{categore.name}</h2>

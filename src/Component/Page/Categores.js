@@ -13,7 +13,7 @@ const Categores = () => {
         <div className='grid lg:grid-cols-3 gap-2 mt-5 md:grid-cols-2 w-11/12 m-auto'>
         {
             categores.map(categore =>
-                <div className="card w-80 bg-base-100 shadow-xl image-full">
+                <div key={categore._id} className="card w-80 bg-base-100 shadow-xl image-full">
                     <figure><img src={categore.img} alt="Shoes" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">{categore.name}</h2>

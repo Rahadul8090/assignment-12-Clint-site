@@ -53,8 +53,7 @@ const ProdectCard = ({ prodect }) => {
                     <p className="text-sm dark:text-gray-400">{disc.slice(0, 300)}...</p>
 
                     <Link to={`/categore/${name}/${_id}`}><button className='w-full btn btn-info m-2'>See Details</button></Link>
-
-                  
+ 
                 </div>
             </div>
         </div>

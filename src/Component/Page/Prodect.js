@@ -82,7 +82,7 @@ const Prodect = () => {
                             <p className='text-xl font-bold  text-green-600'>Resele Price : {resellPrice}</p>
                         </div>
                         <p className="leading-snug dark:text-gray-400">{disc}</p>
-                        <label htmlFor="byProdect" className="btn btn-info w-4/12 m-auto">Buy Now</label>
+                        <label htmlFor="byProdect" className="btn btn-info w-4/12 m-auto">Boking Now</label>
                     </div>
                 </div>
             </div>
@@ -101,7 +101,7 @@ const Prodect = () => {
                         <input required name='price' type="text" placeholder='Price' defaultValue={resellPrice} className="input input-bordered m-2 input-info w-full max-w-xs" />
                         <input required name='UserPhone' type="text" placeholder='ENter Your Phone Number' className="input input-bordered m-2 input-info w-full max-w-xs" />
                         <input required name='UserLocation' type="text" placeholder='Your Location' className="input input-bordered m-2 input-info w-full max-w-xs" />
-                         <button type='submit' className='w-full btn btn-info m-2 max-w-xs'>Submit</button>
+                        <button type='submit' className='w-full btn btn-info m-2 max-w-xs'>Submit</button>
                     </form>
                 </div>
             </div>

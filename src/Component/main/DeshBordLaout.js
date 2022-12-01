@@ -20,6 +20,8 @@ const DeshBord = () => {
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
                         <li><Link to='oraders'>Oraders</Link></li>
                         <li><Link to='allprodect'>All Product</Link></li>
+                        <li><Link to='allseler'>All Seler</Link></li>
+                        <li><Link to='allBayer'> All Bayers</Link></li>
                     </ul>
 
                 </div>
