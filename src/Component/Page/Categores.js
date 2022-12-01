@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Categores = () => {
          const [categores, setCategores] = useState([])
         useEffect(() => {
-            fetch('http://localhost:5000/categore')
+            fetch('https://assignment-12-server-rho-self.vercel.app/categore')
                 .then(res => res.json())
                 .then(samsung => setCategores(samsung))
         }, [])

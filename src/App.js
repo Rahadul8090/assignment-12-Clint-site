@@ -32,7 +32,7 @@ function App() {
           element: <SignIn></SignIn>
         },
         {
-          path:'blog',
+          path:'/blog',
           element:<Blog></Blog>
         },
         {
@@ -43,10 +43,10 @@ function App() {
           path: 'categore',
           element: <Categores></Categores>
         },
-        {
-          path: '/:name',
-          element:<PrivetRout><AllProdects></AllProdects></PrivetRout>,
-        },
+        // {
+        //   path: '/:name',
+        //   element:<PrivetRout><AllProdects></AllProdects></PrivetRout>,
+        // },
         {
           path: '/categore/:name',
           element:<PrivetRout><AllProdects></AllProdects></PrivetRout>,

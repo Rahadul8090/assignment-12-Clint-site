@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const Allseller = () => {
     const [user, setUser] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/allusers?role=Sealler')
+        fetch('https://assignment-12-server-rho-self.vercel.app/allusers?role=Sealler')
             .then(res => res.json())
             .then(data => setUser(data))
     }

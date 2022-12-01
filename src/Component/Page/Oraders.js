@@ -6,7 +6,7 @@ const Oraders = () => {
     const { user, loading } = useContext(authContext)
     const [data, setData] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/reqsell')
+        fetch('https://assignment-12-server-rho-self.vercel.app/reqsell')
             .then(res => res.json())
             .then(boking => setData(boking))
     }, [])

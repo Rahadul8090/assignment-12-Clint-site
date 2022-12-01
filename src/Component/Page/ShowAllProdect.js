@@ -6,7 +6,7 @@ const ShowAllProdect = () => {
     // console.log(name)  
     const [data, setData] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/prodect')
+        fetch('https://assignment-12-server-rho-self.vercel.app/prodect')
             .then(res => res.json())
             .then(data => {
                 // console.log(data)

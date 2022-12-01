@@ -9,7 +9,7 @@ const Prodect = () => {
     const { id } = useParams();
     // console.log(id);
     useEffect(() => {
-        fetch(`http://localhost:5000/prodect/${id}`)
+        fetch(`https://assignment-12-server-rho-self.vercel.app/prodect/${id}`)
             .then(res => res.json())
             .then(data => setProdect(data))
     }, [])
@@ -30,7 +30,7 @@ const Prodect = () => {
         const AllDataValue = {
             names, brand, Prodectimg, UserPhone, UserLocation, UserPhoto, userName, userEmail, price
         }
-        fetch('http://localhost:5000/reqsell', {
+        fetch('https://assignment-12-server-rho-self.vercel.app/reqsell', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

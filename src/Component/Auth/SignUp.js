@@ -50,7 +50,7 @@ const SignUp = () => {
     };
     const saveUser = (name, email ,role) => {
         const user = { name, email, role };
-        fetch('http://localhost:5000/allusers', {
+        fetch('https://assignment-12-server-rho-self.vercel.app/allusers', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

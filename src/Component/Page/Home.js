@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Home = () => {
     const [categores, setCategores] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/categore')
+        fetch('https://assignment-12-server-rho-self.vercel.app/categore')
             .then(res => res.json())
             .then(samsung => setCategores(samsung))
     }, [])
@@ -54,7 +54,7 @@ const Home = () => {
                 </div>
 
             </div>
-            <div className='grid lg:grid-cols-3 gap-2 mt-5 md:grid-cols-2 w-11/12 m-auto'>
+            {/* <div className='grid lg:grid-cols-3 gap-2 mt-5 md:grid-cols-2 w-11/12 m-auto'>
                 {
                     categores.map(categore =>
                         <div key={categore._id} className="card w-80 bg-base-100 shadow-xl image-full">
@@ -68,7 +68,7 @@ const Home = () => {
                         </div>
                     )
                 }
-            </div>
+            </div> */}
         </div>
     );
 };
