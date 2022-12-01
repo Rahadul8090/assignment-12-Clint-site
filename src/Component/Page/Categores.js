@@ -8,7 +8,7 @@ const Categores = () => {
                 .then(res => res.json())
                 .then(samsung => setCategores(samsung))
         }, [])
-        console.log(categores)
+        // console.log(categores)
     return (
         <div className='grid lg:grid-cols-3 gap-2 mt-5 md:grid-cols-2 w-11/12 m-auto'>
         {

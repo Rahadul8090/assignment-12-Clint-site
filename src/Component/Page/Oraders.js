@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { authContext } from '../Auth/Contex';
+import Loading from './Loading';
 
 const Oraders = () => {
-    const { user } = useContext(authContext)
+    const { user, loading } = useContext(authContext)
     const [data, setData] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/reqsell')
@@ -10,8 +11,17 @@ const Oraders = () => {
             .then(boking => setData(boking))
     }, [])
     console.log(data)
+
+    const load = () => {
+        const data = ' loading....'
+        console.log(data)
+
+    }
+
     return (
         <div>
+            <h1 className='w-full p-5 text-center bg-indigo-500 text-3xl'>Your Oraders
+            </h1>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     <thead>
@@ -25,34 +35,38 @@ const Oraders = () => {
                     <tbody>
                         {
                             data.map(oraders =>
-
                                 <tr>
                                     {
-                                        user.email === oraders.userEmail &&
+                                        user?.email === oraders?.userEmail &&
                                         <>
-                                            <td>
-                                                <div className="flex items-center space-x-3">
-                                                    <div className="avatar">
-                                                        <div className="mask mask-squircle w-12 h-12">
-                                                            <img src={oraders.Prodectimg} alt="Avatar Tailwind CSS Component" />
+                                            {data?
+                                             <>
+                                                    <td>
+                                                        <div className="flex items-center space-x-3">
+                                                            <div className="avatar">
+                                                                <div className="mask mask-squircle w-12 h-12">
+                                                                    <img src={oraders.Prodectimg} alt="Avatar Tailwind CSS Component" />
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <div className="font-bold">{oraders.names}</div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div>
-                                                        <div className="font-bold">{oraders.names}</div>
-                                                     </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                {oraders.UserPhone}
-                                                <br />
-                                                <span className="badge badge-ghost badge-sm">{oraders.userEmail }</span>
-                                            </td>
-                                            <td>{oraders.price}Tk</td>
-                                            <th>
-                                                <button className="btn btn-ghost btn-xs">Premet Now</button>
-                                            </th>
+                                                    </td>
+                                                    <td>
+                                                        {oraders.UserPhone}
+                                                        <br />
+                                                        <span className="badge badge-ghost badge-sm">{oraders.userEmail}</span>
+                                                    </td>
+                                                    <td>{oraders.price}Tk</td>
+                                                    <th>
+                                                        <button className="btn btn-ghost btn-xs">Premet Now</button>
+                                                    </th>
+                                                </>
+                                                :
+                                                <Loading className='p-52'>Loading...</Loading>
+                                             }
                                         </>
-
                                     }
                                 </tr>
                             )

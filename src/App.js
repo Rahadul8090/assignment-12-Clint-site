@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
+ import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './Component/Page/Home';
 import Main from './Component/main/Main';
@@ -7,12 +6,12 @@ import SignIn from './Component/Auth/SignIn';
 import SignUp from './Component/Auth/SignUp';
 import AllProdects from './Component/Page/AllProdects';
 import Categores from './Component/Page/Categores';
-import Dshbord from './Component/Page/Dshbord';
 import { Toaster } from 'react-hot-toast';
 import DeshBordLaout from './Component/main/DeshBordLaout';
 import Prodect from './Component/Page/Prodect';
 import ShowAllProdect from './Component/Page/ShowAllProdect';
 import Oraders from './Component/Page/Oraders';
+import PrivetRout from './Component/main/PrivatRout';
 
 
 function App() {
@@ -39,11 +38,11 @@ function App() {
         },
         {
           path: '/:name',
-          element: <AllProdects></AllProdects>,
+          element:<PrivetRout><AllProdects></AllProdects></PrivetRout>,
         },
         {
           path: '/categore/:name',
-          element: <AllProdects></AllProdects>,
+          element:<PrivetRout><AllProdects></AllProdects></PrivetRout>,
         },
         {
           path: `/categore/:name/:id`,
@@ -57,13 +56,18 @@ function App() {
       element: <DeshBordLaout></DeshBordLaout>,
       children:[
         {
-          path:'/deshbord/allprodect',
-          element:<ShowAllProdect></ShowAllProdect>
+          path:'/deshbord',
+          element: <Oraders></Oraders>
         },
         {
           path:'/deshbord/oraders',
           element: <Oraders></Oraders>
         },
+        {
+          path:'/deshbord/allprodect',
+          element:<ShowAllProdect></ShowAllProdect>
+        },
+        
         {
           path: `/deshbord/:name/:id`,
           element: <Prodect></Prodect>
