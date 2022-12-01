@@ -14,6 +14,7 @@ import Oraders from './Component/Page/Oraders';
 import PrivetRout from './Component/main/PrivatRout';
  import AllBayer from './Component/Page/AllBayer';
  import Allseller from './Component/Page/AllSeler';
+import Blog from './Component/Page/Blog';
 
 
 function App() {
@@ -29,6 +30,10 @@ function App() {
         {
           path: '/signin',
           element: <SignIn></SignIn>
+        },
+        {
+          path:'blog',
+          element:<Blog></Blog>
         },
         {
           path: '/signup',
